@@ -1,5 +1,6 @@
 package com.mhemdan.popularactors.di.builder
 
+import com.mhemdan.popularactors.ui.actordetails.ActorDetailsFragmentProvider
 import com.mhemdan.popularactors.ui.actordetails.ActorDetailsModule
 import com.mhemdan.popularactors.ui.actordetails.view.ActorDetailsActivity
 import com.mhemdan.popularactors.ui.actorslist.ActorsListFragmentProvider
@@ -17,6 +18,6 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(ActorsListFragmentProvider::class)])
     abstract fun bindActorListActivity(): ActorsListActivity
 
-    @ContributesAndroidInjector(modules = [(ActorDetailsModule::class)])
+    @ContributesAndroidInjector(modules = [(ActorDetailsFragmentProvider::class)])
     abstract fun bindActorDetailsActivity(): ActorDetailsActivity
 }

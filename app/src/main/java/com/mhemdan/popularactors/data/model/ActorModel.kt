@@ -6,5 +6,8 @@ data class ActorModel(
     val known_for: List<KnownFor>,
     val name: String,
     val popularity: Double,
-    val profile_path: String
+    val profile_path: String,
+    val biography: String,
+    val birthday: String,
+    val place_of_birth: String
 )

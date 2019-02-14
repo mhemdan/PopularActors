@@ -6,5 +6,6 @@ package com.mhemdan.popularactors.data.network
  */
 object ApiEndPoints {
     const val ACTORS_LIST = "person/popular"
-    const val ACTOR_DETAILS = "person/{${ApiKeys.PERSON_ID}}/images"
+    const val ACTOR_DETAILS = "person/{${ApiKeys.PERSON_ID}}"
+    const val ACTOR_IMAGES = "person/{${ApiKeys.PERSON_ID}}/images"
 }

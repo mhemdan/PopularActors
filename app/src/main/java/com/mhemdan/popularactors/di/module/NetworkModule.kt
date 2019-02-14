@@ -29,9 +29,15 @@ object NetworkModule {
     @Provides
     @Reusable
     @JvmStatic
-    internal fun provideLoginApi(retrofit: Retrofit): PopularActorsListApi {
-        return retrofit.create(PopularActorsListApi::class.java)
-    }
+    internal fun provideActorsListApi(retrofit: Retrofit): PopularActorsListApi =
+         retrofit.create(PopularActorsListApi::class.java)
+
+    @Provides
+    @Reusable
+    @JvmStatic
+    internal fun provideActorDetailsApi(retrofit: Retrofit): PopularActorDetailsApi =
+        retrofit.create(PopularActorDetailsApi::class.java)
+
 
     @Provides
     @Named("API_KEY_INTERCEPTOR")

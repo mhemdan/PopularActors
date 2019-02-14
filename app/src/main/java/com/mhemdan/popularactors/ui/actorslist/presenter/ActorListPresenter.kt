@@ -29,7 +29,7 @@ class ActorListPresenter<V : ActorListContract.View, I : ActorListInteractor> @I
                         .subscribe({ baseResponse ->
                             view?.hideLoading()
                             view?.insertItems(baseResponse.results)
-                        }, { error ->
+                        }, {
                             view?.hideLoading()
                             view?.showGeneralError()
                         })
