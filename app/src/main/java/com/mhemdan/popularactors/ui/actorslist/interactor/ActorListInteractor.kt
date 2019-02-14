@@ -9,5 +9,5 @@ import io.reactivex.Single
  * github : https://github.com/mhemdan
  */
 interface ActorListInteractor: BaseInteractor {
-    fun getPopularActors(pageNumber: Int): Single<PopularActorsResponse>
+    fun getPopularActors(pageIndex: Int): Single<PopularActorsResponse>
 }

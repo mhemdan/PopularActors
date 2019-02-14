@@ -16,7 +16,7 @@ class ActorListInteractorImpl @Inject internal constructor() : BaseInteractorImp
     @Inject
     lateinit var popularActorsListApi: PopularActorsListApi
 
-    override fun getPopularActors(pageNumber: Int): Single<PopularActorsResponse> =
-            popularActorsListApi.getActorsList()
+    override fun getPopularActors(pageIndex: Int): Single<PopularActorsResponse> =
+            popularActorsListApi.getActorsList(pageIndex)
 
 }

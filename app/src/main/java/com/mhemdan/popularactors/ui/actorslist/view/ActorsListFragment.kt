@@ -13,6 +13,7 @@ import com.mhemdan.popularactors.ui.actorslist.ActorListContract
 import com.mhemdan.popularactors.ui.actorslist.interactor.ActorListInteractor
 import com.mhemdan.popularactors.ui.actorslist.presenter.ActorListPresenter
 import com.mhemdan.popularactors.ui.base.view.BaseFragment
+import com.mhemdan.popularactors.utils.ui.InfiniteScrollListener
 import kotlinx.android.synthetic.main.fragment_actors_list.*
 import javax.inject.Inject
 
@@ -24,9 +25,8 @@ class ActorsListFragment: BaseFragment(), ActorListContract.View {
 
     @Inject
     internal lateinit var presenter: ActorListPresenter<ActorListContract.View, ActorListInteractor>
-    private lateinit var scrollListener: RecyclerView.OnScrollListener
-
-    val adapter = ActorsListAdapter()
+    private var pageIndex = 1
+    private val adapter = ActorsListAdapter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
         inflater.inflate(R.layout.fragment_actors_list, container, false)
@@ -34,28 +34,17 @@ class ActorsListFragment: BaseFragment(), ActorListContract.View {
 
     override fun setUp() {
         presenter.attachView(this)
-        presenter.getPopularActors(0)
-           listActors.addOnScrollListener(RecyclerView.OnScrollListener{
+        presenter.getPopularActors(pageIndex)
 
-           })
         listActors.adapter = adapter
-    }
-
-    private fun setRecyclerViewScrollListener() {
-        scrollListener = object : RecyclerView.OnScrollListener() {
-            override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
-                super.onScrollStateChanged(recyclerView, newState)
-                val totalItemCount = recyclerView!!.layoutManager.itemCount
-                if (totalItemCount == lastVisibleItemPosition + 1) {
-                    listActors.removeOnScrollListener(scrollListener)
-                }
-            }
-        }
-        listActors.addOnScrollListener(scrollListener)
+           listActors .addOnScrollListener(
+                InfiniteScrollListener({ presenter.getPopularActors(pageIndex) }, listActors.layoutManager as GridLayoutManager)
+            )
     }
 
     override fun insertItems(items: List<ActorModel>) {
         adapter.insertItems(items)
+        pageIndex++
     }
 
     companion object {

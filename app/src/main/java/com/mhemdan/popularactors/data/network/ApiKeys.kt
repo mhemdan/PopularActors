@@ -5,6 +5,6 @@ package com.mhemdan.popularactors.data.network
  * github : https://github.com/mhemdan
  */
 object ApiKeys {
-    const val PAGE_NUMBER = "page"
+    const val PAGE_INDEX = "page"
     const val PERSON_ID = "person_id"
 }
