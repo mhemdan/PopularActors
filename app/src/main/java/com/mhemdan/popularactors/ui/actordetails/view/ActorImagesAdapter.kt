@@ -11,6 +11,9 @@ import com.mhemdan.popularactors.R
 import com.mhemdan.popularactors.data.model.ImageModel
 import com.mhemdan.popularactors.util.extension.launchActivity
 import com.mhemdan.popularactors.utils.extensions.actorModel
+import com.mhemdan.popularactors.utils.extensions.actorName
+import com.mhemdan.popularactors.utils.extensions.imageUrl
+import com.mhemdan.popularactors.utils.ui.imagefullscreen.ImageFullScreenActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_actor_image.view.*
 
@@ -21,14 +24,11 @@ import kotlinx.android.synthetic.main.item_actor_image.view.*
 class ActorImagesAdapter: RecyclerView.Adapter<ActorImagesAdapter.ActorImageViewHolder>() {
 
     private var items = ArrayList<ImageModel>()
+    lateinit var actorName: String
 
     fun insertItems(newItems: List<ImageModel>) {
         items.addAll(newItems)
         notifyDataSetChanged()
-    }
-
-    fun clear() {
-        items.clear()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActorImageViewHolder =
@@ -41,11 +41,17 @@ class ActorImagesAdapter: RecyclerView.Adapter<ActorImagesAdapter.ActorImageView
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: ActorImageViewHolder, position: Int) =
-        holder.bind(items[position])
+        holder.bind(items[position], actorName)
     class ActorImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(item: ImageModel) {
+        fun bind(item: ImageModel, actorName: String) {
             Picasso.get().load(BuildConfig.IMAGES_BASE_URL + item.file_path).into(itemView.imgActor)
             itemView.setOnClickListener {
+                itemView.context.launchActivity<ImageFullScreenActivity> {
+                    putExtras(Bundle().apply {
+                        this.imageUrl = BuildConfig.IMAGES_BASE_URL + item.file_path
+                        this.actorName = actorName
+                    })
+                }
             }
         }
     }

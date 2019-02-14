@@ -3,7 +3,7 @@
     <string name="app_internet_connection_error">Please check your internet connectivity</string>
     <string name="app_general_error">Something went wrong you can try again later</string>
 
-    <string name="app_actor_details_birthday">Birthday: </string>
-    <string name="app_actor_details_bio">Biography: </string>
-    <string name="app_actor_details_place_of_birth">Place of birth: </string>
+    <string name="app_actor_details_birthday">Birthday:</string>
+    <string name="app_actor_details_bio">Biography:</string>
+    <string name="app_actor_details_place_of_birth">Place of birth:</string>
 </resources>

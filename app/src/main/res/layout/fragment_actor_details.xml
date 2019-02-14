@@ -24,6 +24,7 @@
                   android:layout_height="wrap_content"
                   android:textSize="@dimen/app_text_size_medium"
                   android:textStyle="bold"
+                  android:layout_marginTop="@dimen/_8sdp"
                   android:text="@string/app_actor_details_birthday"/>
         <TextView
                 android:id="@+id/txtBirthday"
@@ -34,6 +35,7 @@
                   android:layout_height="wrap_content"
                   android:textSize="@dimen/app_text_size_medium"
                   android:textStyle="bold"
+                  android:layout_marginTop="@dimen/_8sdp"
                   android:text="@string/app_actor_details_place_of_birth"/>
         <TextView
                 android:id="@+id/txtPlaceOfBirth"

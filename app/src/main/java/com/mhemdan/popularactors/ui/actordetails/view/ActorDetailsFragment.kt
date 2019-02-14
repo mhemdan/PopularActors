@@ -34,6 +34,7 @@ class ActorDetailsFragment: BaseFragment(), ActorDetailsContract.View {
         presenter.attachView(this)
         arguments?.actorModel?.let {
             presenter.getActorDetails(it.id)
+            adapter.actorName = it.name
         }
         listActorImages.adapter = adapter
     }

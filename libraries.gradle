@@ -19,6 +19,7 @@ ext{
     alerterVersion = "4.0.0"
     glideVersion = "4.8.0"
     picassoVersion = "2.71828"
+    photoViewVersion = "2.0.0"
     ratingBarVersion = "0.1.5"
 
     okhttpVersion = "3.13.1"
@@ -57,6 +58,7 @@ ext{
             loadingAnimation : "com.wang.avi:library:${loadingAnimationVersion}",
             glide            : "com.github.bumptech.glide:glide:${glideVersion}",
             picasso          : "com.squareup.picasso:picasso:${picassoVersion}",
+            photoView        : "com.github.chrisbanes:PhotoView:${photoViewVersion}",
             ratingBar        : "com.iarcuschin:simpleratingbar:${ratingBarVersion}",
 
             espressoIdlingResource : "androidx.test.espresso:espresso-idling-resource:${espressoVersion}",

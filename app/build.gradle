@@ -65,6 +65,7 @@ dependencies {
     implementation rootProject.ext.libraries.alerter
     implementation rootProject.ext.libraries.glide
     implementation rootProject.ext.libraries.picasso
+    implementation rootProject.ext.libraries.photoView
 
     //rxJava
     implementation rootProject.ext.libraries.rxjava
