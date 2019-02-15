@@ -21,6 +21,7 @@ ext{
     picassoVersion = "2.71828"
     photoViewVersion = "2.0.0"
     ratingBarVersion = "0.1.5"
+    rxPermissionVersion = "0.10.2"
 
     okhttpVersion = "3.13.1"
     retrofitVersion = "2.5.0"
@@ -60,6 +61,7 @@ ext{
             picasso          : "com.squareup.picasso:picasso:${picassoVersion}",
             photoView        : "com.github.chrisbanes:PhotoView:${photoViewVersion}",
             ratingBar        : "com.iarcuschin:simpleratingbar:${ratingBarVersion}",
+            rxPermission     : "com.github.tbruyelle:rxpermissions:${rxPermissionVersion}",
 
             espressoIdlingResource : "androidx.test.espresso:espresso-idling-resource:${espressoVersion}",
             // Dependencies for local unit tests

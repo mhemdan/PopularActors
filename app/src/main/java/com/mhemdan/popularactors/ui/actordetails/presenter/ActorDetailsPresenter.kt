@@ -19,47 +19,44 @@ class ActorDetailsPresenter<V : ActorDetailsContract.View, I : ActorDetailsInera
     ActorDetailsContract.Presenter<V, I> {
 
     override fun getActorDetails(personID: Int) {
-        when {
-            isNetConnectedOnFailurePromptUser(stateManager).not() -> return
-            else -> {
-                view?.showLoading()
-                interactor?.let {
-                    val disposable = it.getActorDetails(personID)
-                        .doOnSuccess { getActorImages(personID) }
-                        .compose(schedulerProvider.ioToMainSingleScheduler())
-                        .subscribe({ actorModel ->
-                            view?.hideLoading()
-                            view?.insertActorDetails(actorModel)
-                        }, {
-                            view?.hideLoading()
-                            view?.showGeneralError()
-                        })
 
-                    compositeDisposable?.add(disposable)
-                }
-            }
+        isNetConnectedOnFailurePromptUser(stateManager).not()
+
+        view?.showLoading()
+        interactor?.let {
+            val disposable = it.getActorDetails(personID)
+                .doOnSuccess { getActorImages(personID) }
+                .compose(schedulerProvider.ioToMainSingleScheduler())
+                .subscribe({ actorModel ->
+                    view?.hideLoading()
+                    view?.insertActorDetails(actorModel)
+                }, {
+                    view?.hideLoading()
+                    view?.showGeneralError()
+                })
+
+            compositeDisposable?.add(disposable)
         }
+
     }
 
-    fun getActorImages(personID: Int){
-        when {
-            isNetConnectedOnFailurePromptUser(stateManager).not() -> return
-            else -> {
-                view?.showLoading()
-                interactor?.let {
-                    val disposable = it.getActorImages(personID)
-                        .compose(schedulerProvider.ioToMainSingleScheduler())
-                        .subscribe({imagesResponse ->
-                            view?.hideLoading()
-                            view?.insertActorImages(imagesResponse.profiles)
-                        }, {
-                            view?.hideLoading()
-                            view?.showGeneralError()
-                        })
+    private fun getActorImages(personID: Int) {
 
-                    compositeDisposable?.add(disposable)
-                }
-            }
+        isNetConnectedOnFailurePromptUser(stateManager).not()
+
+        view?.showLoading()
+        interactor?.let {
+            val disposable = it.getActorImages(personID)
+                .compose(schedulerProvider.ioToMainSingleScheduler())
+                .subscribe({ imagesResponse ->
+                    view?.hideLoading()
+                    view?.insertActorImages(imagesResponse.profiles)
+                }, {
+                    view?.hideLoading()
+                    view?.showGeneralError()
+                })
+
+            compositeDisposable?.add(disposable)
         }
     }
 }

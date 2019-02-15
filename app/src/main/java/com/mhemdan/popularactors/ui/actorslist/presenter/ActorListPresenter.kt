@@ -19,24 +19,20 @@ class ActorListPresenter<V : ActorListContract.View, I : ActorListInteractor> @I
     ActorListContract.Presenter<V, I> {
 
     override fun getPopularActors(pageNumber: Int) {
-        when {
-            isNetConnectedOnFailurePromptUser(stateManager).not() -> return
-            else -> {
-                view?.showLoading()
-                interactor?.let {
-                    val disposable = it.getPopularActors(pageNumber)
-                        .compose(schedulerProvider.ioToMainSingleScheduler())
-                        .subscribe({ baseResponse ->
-                            view?.hideLoading()
-                            view?.insertItems(baseResponse.results)
-                        }, {
-                            view?.hideLoading()
-                            view?.showGeneralError()
-                        })
+        isNetConnectedOnFailurePromptUser(stateManager).not()
+        view?.showLoading()
+        interactor?.let {
+            val disposable = it.getPopularActors(pageNumber)
+                .compose(schedulerProvider.ioToMainSingleScheduler())
+                .subscribe({ baseResponse ->
+                    view?.hideLoading()
+                    view?.insertItems(baseResponse.results)
+                }, {
+                    view?.hideLoading()
+                    view?.showGeneralError()
+                })
 
-                    compositeDisposable?.add(disposable)
-                }
-            }
+            compositeDisposable?.add(disposable)
         }
     }
 }

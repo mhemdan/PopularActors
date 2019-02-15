@@ -66,6 +66,7 @@ dependencies {
     implementation rootProject.ext.libraries.glide
     implementation rootProject.ext.libraries.picasso
     implementation rootProject.ext.libraries.photoView
+    implementation rootProject.ext.libraries.rxPermission
 
     //rxJava
     implementation rootProject.ext.libraries.rxjava
