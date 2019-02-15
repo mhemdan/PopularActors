@@ -1,5 +1,6 @@
 package com.mhemdan.popularactors.ui.actorslist.view
 
+import android.opengl.Visibility
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -49,8 +50,18 @@ class ActorsListFragment: BaseFragment(), ActorListContract.View {
     }
 
     override fun insertItems(items: List<ActorModel>) {
+        if(listActors.visibility == View.GONE) {
+            listActors.visibility = View.VISIBLE
+            txtEmptyView.visibility = View.GONE
+        }
+
         adapter.insertItems(items)
         pageIndex++
+    }
+
+    override fun showEmptyResults() {
+        txtEmptyView.visibility = View.VISIBLE
+        listActors.visibility = View.GONE
     }
 
     companion object {

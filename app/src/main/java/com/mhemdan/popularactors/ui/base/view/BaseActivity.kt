@@ -4,6 +4,10 @@ package com.mhemdan.popularactors.ui.base.view
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.mhemdan.popularactors.R
+import com.mhemdan.popularactors.ui.base.view.loading.LoadingFragmentDialog
+import com.mhemdan.popularactors.util.extension.addFragment
+import com.mhemdan.popularactors.util.extension.findFragment
+import com.mhemdan.popularactors.util.extension.removeFragment
 import com.tapadoo.alerter.Alerter
 import dagger.android.AndroidInjection
 
@@ -21,10 +25,13 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
 
 
     override fun showLoading() {
-
+        if (findFragment(LoadingFragmentDialog::class.java.simpleName) == null) {
+            addFragment(LoadingFragmentDialog())
+        }
     }
 
     override fun hideLoading() {
+        findFragment(LoadingFragmentDialog::class.java.simpleName)?.let { removeFragment(it) }
     }
 
     override fun showInternetError() {

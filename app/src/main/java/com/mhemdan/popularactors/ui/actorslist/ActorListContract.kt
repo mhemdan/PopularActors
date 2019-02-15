@@ -16,5 +16,6 @@ interface ActorListContract {
 
     interface View : BaseView {
         fun insertItems(items: List<ActorModel>)
+        fun showEmptyResults()
     }
 }
