@@ -11,7 +11,7 @@ import com.mhemdan.popularactors.ui.base.view.BaseView
  */
 interface ActorListContract {
     interface Presenter<V : View, I : ActorListInteractor> : BasePresenter<V, I> {
-        fun getPopularActors(pageNumber: Int)
+        fun getPopularActors(pageNumber: Int, searchQuery: String? = "")
     }
 
     interface View : BaseView {

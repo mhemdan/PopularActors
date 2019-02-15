@@ -16,7 +16,9 @@ class ActorListInteractorImpl @Inject internal constructor() : BaseInteractorImp
     @Inject
     lateinit var popularActorsListApi: PopularActorsListApi
 
-    override fun getPopularActors(pageIndex: Int): Single<PopularActorsResponse> =
-            popularActorsListApi.getActorsList(pageIndex)
+    override fun getPopularActors(pageIndex: Int, searchQuery: String?): Single<PopularActorsResponse> =
+            when{
+                !searchQuery.isNullOrEmpty()-> popularActorsListApi.searchActors(searchQuery, pageIndex)
+                else -> popularActorsListApi.getActorsList(pageIndex) }
 
 }

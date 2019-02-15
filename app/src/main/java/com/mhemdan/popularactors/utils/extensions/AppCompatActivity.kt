@@ -17,6 +17,11 @@ fun AppCompatActivity.addFragment(fragment: Fragment, frameId: Int) {
     supportFragmentManager.inTransaction { add(frameId, fragment) }
 }
 
+fun AppCompatActivity.addFragmentWithBackStack(fragment: Fragment, frameId: Int) {
+    supportFragmentManager.inTransaction { add(frameId, fragment)
+        addToBackStack(fragment.javaClass.simpleName)}
+}
+
 fun AppCompatActivity.addFragment(fragment: DialogFragment) {
     supportFragmentManager.inTransaction { add(fragment, fragment.javaClass.simpleName) }
 }

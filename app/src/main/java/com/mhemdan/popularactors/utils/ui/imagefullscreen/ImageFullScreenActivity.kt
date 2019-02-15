@@ -54,8 +54,7 @@ class ImageFullScreenActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.menu_save_image, menu)
+        menuInflater.inflate(R.menu.menu_save_image, menu)
         return true
     }
 

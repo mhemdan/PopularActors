@@ -13,6 +13,7 @@ import com.mhemdan.popularactors.ui.actorslist.ActorListContract
 import com.mhemdan.popularactors.ui.actorslist.interactor.ActorListInteractor
 import com.mhemdan.popularactors.ui.actorslist.presenter.ActorListPresenter
 import com.mhemdan.popularactors.ui.base.view.BaseFragment
+import com.mhemdan.popularactors.utils.extensions.searchQuery
 import com.mhemdan.popularactors.utils.ui.InfiniteScrollListener
 import kotlinx.android.synthetic.main.fragment_actors_list.*
 import javax.inject.Inject
@@ -34,12 +35,17 @@ class ActorsListFragment: BaseFragment(), ActorListContract.View {
 
     override fun setUp() {
         presenter.attachView(this)
-        presenter.getPopularActors(pageIndex)
+
+        getActors()
 
         listActors.adapter = adapter
            listActors .addOnScrollListener(
-                InfiniteScrollListener({ presenter.getPopularActors(pageIndex) }, listActors.layoutManager as GridLayoutManager)
+                InfiniteScrollListener({ getActors() }, listActors.layoutManager as GridLayoutManager)
             )
+    }
+
+    private fun getActors(){
+        presenter.getPopularActors(pageIndex, arguments?.searchQuery)
     }
 
     override fun insertItems(items: List<ActorModel>) {

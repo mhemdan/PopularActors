@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PopularActors</string>
+    <string name="app_name">Popular Actors</string>
     <string name="app_internet_connection_error">Please check your internet connectivity</string>
     <string name="app_general_error">Something went wrong you can try again later</string>
 

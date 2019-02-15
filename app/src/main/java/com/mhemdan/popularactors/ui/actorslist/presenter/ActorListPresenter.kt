@@ -18,11 +18,11 @@ class ActorListPresenter<V : ActorListContract.View, I : ActorListInteractor> @I
 ) : BasePresenterImp<V, I>(interactor = interactor),
     ActorListContract.Presenter<V, I> {
 
-    override fun getPopularActors(pageNumber: Int) {
+    override fun getPopularActors(pageNumber: Int, searchQuery: String?) {
         isNetConnectedOnFailurePromptUser(stateManager).not()
         view?.showLoading()
         interactor?.let {
-            val disposable = it.getPopularActors(pageNumber)
+            val disposable = it.getPopularActors(pageNumber, searchQuery)
                 .compose(schedulerProvider.ioToMainSingleScheduler())
                 .subscribe({ baseResponse ->
                     view?.hideLoading()

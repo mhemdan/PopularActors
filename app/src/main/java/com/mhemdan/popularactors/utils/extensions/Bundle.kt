@@ -28,3 +28,10 @@ var Bundle.actorName: String?
     set(value) {
         putString(EXTRA_ACTOR_NAME, value)
     }
+
+private const val EXTRA_SEARCH_QUERY = "EXTRA_SEARCH_QUERY"
+var Bundle.searchQuery: String?
+    get() = getString(EXTRA_SEARCH_QUERY)
+    set(value) {
+        putString(EXTRA_SEARCH_QUERY, value)
+    }

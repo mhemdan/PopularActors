@@ -7,4 +7,5 @@ package com.mhemdan.popularactors.data.network
 object ApiKeys {
     const val PAGE_INDEX = "page"
     const val PERSON_ID = "person_id"
+    const val SEARCH_QUERY = "query"
 }
