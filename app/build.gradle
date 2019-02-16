@@ -48,13 +48,9 @@ androidExtensions {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
     implementation 'androidx.core:core-ktx:1.1.0-alpha04'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
 
+    implementation rootProject.ext.libraries.appCompatSupport
     implementation rootProject.ext.libraries.recyclerView
     implementation rootProject.ext.libraries.cardView
     implementation rootProject.ext.libraries.designSupport
@@ -86,4 +82,15 @@ dependencies {
     implementation rootProject.ext.libraries.retrofit
     implementation rootProject.ext.libraries.retrofitConverter
     implementation rootProject.ext.libraries.retrofitAdapter
+
+    // testing
+    testImplementation rootProject.ext.libraries.junit
+    testImplementation rootProject.ext.libraries.mockk
+
+    testImplementation rootProject.ext.libraries.hamcrest
+    androidTestImplementation rootProject.ext.libraries.testRunner
+    androidTestImplementation rootProject.ext.libraries.testRules
+    implementation rootProject.ext.libraries.espressoIdlingResource
+    androidTestImplementation rootProject.ext.libraries.espressoCore
+    androidTestImplementation rootProject.ext.libraries.espressoContrib
 }

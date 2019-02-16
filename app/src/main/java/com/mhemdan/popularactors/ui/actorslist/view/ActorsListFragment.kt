@@ -64,6 +64,11 @@ class ActorsListFragment: BaseFragment(), ActorListContract.View {
         listActors.visibility = View.GONE
     }
 
+    override fun onDestroyView() {
+        presenter.dropView()
+        super.onDestroyView()
+    }
+
     companion object {
         fun newInstance() = ActorsListFragment()
     }

@@ -49,6 +49,11 @@ class ActorDetailsFragment: BaseFragment(), ActorDetailsContract.View {
         adapter.insertItems(images)
     }
 
+    override fun onDestroyView() {
+        presenter.dropView()
+        super.onDestroyView()
+    }
+
     companion object {
         fun newInstance() = ActorDetailsFragment()
     }
