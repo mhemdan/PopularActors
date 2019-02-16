@@ -1,12 +1,12 @@
 package com.mhemdan.popularactors.utils.ui
 
-
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class InfiniteScrollListener(
     val func: () -> Unit,
-    private val layoutManager: GridLayoutManager) : RecyclerView.OnScrollListener() {
+    private val layoutManager: GridLayoutManager
+) : RecyclerView.OnScrollListener() {
 
     private var previousTotal = 0
     private var loading = true
@@ -37,5 +37,4 @@ class InfiniteScrollListener(
             }
         }
     }
-
 }

@@ -1,7 +1,5 @@
 package com.mhemdan.popularactors.ui.actorslist.interactor
 
-import com.google.gson.JsonElement
-import com.mhemdan.popularactors.data.model.ActorModel
 import com.mhemdan.popularactors.data.model.PopularActorsResponse
 import com.mhemdan.popularactors.data.network.api.PopularActorsListApi
 import com.mhemdan.popularactors.ui.base.interactor.BaseInteractorImp
@@ -17,8 +15,7 @@ class ActorListInteractorImpl @Inject internal constructor() : BaseInteractorImp
     lateinit var popularActorsListApi: PopularActorsListApi
 
     override fun getPopularActors(pageIndex: Int, searchQuery: String?): Single<PopularActorsResponse> =
-            when{
-                !searchQuery.isNullOrEmpty()-> popularActorsListApi.searchActors(searchQuery, pageIndex)
+            when {
+                !searchQuery.isNullOrEmpty() -> popularActorsListApi.searchActors(searchQuery, pageIndex)
                 else -> popularActorsListApi.getActorsList(pageIndex) }
-
 }

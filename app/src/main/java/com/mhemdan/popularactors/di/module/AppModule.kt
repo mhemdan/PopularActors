@@ -2,7 +2,6 @@ package com.mhemdan.popularactors.di.module
 
 import android.app.Application
 import android.content.Context
-import com.mhemdan.popularactors.ActorsApp
 import com.mhemdan.popularactors.BuildConfig
 import com.mhemdan.popularactors.di.ApiKeyInfo
 import com.mhemdan.popularactors.di.BaseUrlInfo
@@ -82,5 +81,4 @@ class AppModule {
     internal fun provideCacheDir(context: Context): File {
         return context.cacheDir
     }
-
 }

@@ -15,7 +15,6 @@ import dagger.android.support.HasSupportFragmentInjector
 import kotlinx.android.synthetic.main.activity_acors_list.*
 import javax.inject.Inject
 
-
 class ActorsListActivity : BaseActivity(), HasSupportFragmentInjector, SearchView.OnQueryTextListener,
     SearchView.OnCloseListener {
 
@@ -59,7 +58,6 @@ class ActorsListActivity : BaseActivity(), HasSupportFragmentInjector, SearchVie
         onBackPressed()
         return false
     }
-
 
     override fun onQueryTextChange(newText: String?): Boolean {
         return true

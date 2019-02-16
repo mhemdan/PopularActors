@@ -17,7 +17,5 @@ class ActorListModule {
     internal fun provideActorsListInteractor(interactor: ActorListInteractorImpl): ActorListInteractor = interactor
 
     @Provides
-    internal fun provideActorListPresenter(presenter: ActorListPresenter<ActorListContract.View, ActorListInteractor>)
-            : ActorListContract.Presenter<ActorListContract.View, ActorListInteractor> = presenter
-
+    internal fun provideActorListPresenter(presenter: ActorListPresenter<ActorListContract.View, ActorListInteractor>): ActorListContract.Presenter<ActorListContract.View, ActorListInteractor> = presenter
 }

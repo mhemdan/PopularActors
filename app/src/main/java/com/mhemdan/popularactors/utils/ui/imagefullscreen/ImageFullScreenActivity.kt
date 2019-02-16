@@ -7,7 +7,6 @@ import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -18,8 +17,7 @@ import com.squareup.picasso.Picasso
 import com.squareup.picasso.Target
 import com.tbruyelle.rxpermissions2.RxPermissions
 import kotlinx.android.synthetic.main.activity_image_full_screen.*
-import java.util.*
-
+import java.util.Calendar
 
 class ImageFullScreenActivity : AppCompatActivity() {
 
@@ -87,5 +85,4 @@ class ImageFullScreenActivity : AppCompatActivity() {
         onBackPressed()
         return true
     }
-
 }

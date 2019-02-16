@@ -4,8 +4,7 @@ import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
-import  com.mhemdan.popularactors.utils.extensions.inTransaction
-
+import com.mhemdan.popularactors.utils.extensions.inTransaction
 
 /**
  * Created by Ahmed Ghazy on 12/19/18.
@@ -19,7 +18,7 @@ fun AppCompatActivity.addFragment(fragment: Fragment, frameId: Int) {
 
 fun AppCompatActivity.addFragmentWithBackStack(fragment: Fragment, frameId: Int) {
     supportFragmentManager.inTransaction { add(frameId, fragment)
-        addToBackStack(fragment.javaClass.simpleName)}
+        addToBackStack(fragment.javaClass.simpleName) }
 }
 
 fun AppCompatActivity.addFragment(fragment: DialogFragment) {

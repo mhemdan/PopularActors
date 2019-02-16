@@ -5,12 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.mhemdan.popularactors.BuildConfig
 import com.mhemdan.popularactors.R
 import com.mhemdan.popularactors.data.model.ImageModel
 import com.mhemdan.popularactors.util.extension.launchActivity
-import com.mhemdan.popularactors.utils.extensions.actorModel
 import com.mhemdan.popularactors.utils.extensions.actorName
 import com.mhemdan.popularactors.utils.extensions.imageUrl
 import com.mhemdan.popularactors.utils.ui.imagefullscreen.ImageFullScreenActivity
@@ -21,7 +19,7 @@ import kotlinx.android.synthetic.main.item_actor_image.view.*
  * Created by m.hemdan on 14,February,2019
  * github : https://github.com/mhemdan
  */
-class ActorImagesAdapter: RecyclerView.Adapter<ActorImagesAdapter.ActorImageViewHolder>() {
+class ActorImagesAdapter : RecyclerView.Adapter<ActorImagesAdapter.ActorImageViewHolder>() {
 
     private var items = ArrayList<ImageModel>()
     lateinit var actorName: String

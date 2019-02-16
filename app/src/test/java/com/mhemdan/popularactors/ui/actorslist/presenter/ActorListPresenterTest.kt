@@ -16,7 +16,6 @@ import io.reactivex.schedulers.TestScheduler
 import org.junit.Before
 import org.junit.Test
 
-
 /**
  * Created by m.hemdan on 16,February,2019
  * github : https://github.com/mhemdan
@@ -27,7 +26,6 @@ class ActorListPresenterTest {
     val mockActorList = mockk<List<ActorModel>>()
     val mockActorListInteractor = mockk<ActorListInteractorImpl>()
     val stateManager = mockk<StateManager>()
-
 
     private lateinit var mockActorsListPresenter: ActorListContract.Presenter<ActorListContract.View, ActorListInteractor>
     private lateinit var mTestScheduler: TestScheduler
@@ -65,7 +63,7 @@ class ActorListPresenterTest {
         verify { mockView.showEmptyResults() }
     }
 
-    private fun getActorsWithEmptyFlag(emptyFlag: Boolean){
+    private fun getActorsWithEmptyFlag(emptyFlag: Boolean) {
         every { stateManager.isConnected() } returns true
         every { mockActorListResponse.results } returns mockActorList
         every { mockActorListInteractor.getPopularActors(1) } returns Single.just(mockActorListResponse)

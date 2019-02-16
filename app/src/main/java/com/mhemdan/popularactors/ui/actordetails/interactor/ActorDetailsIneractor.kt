@@ -9,7 +9,7 @@ import io.reactivex.Single
  * Created by m.hemdan on 11,February,2019
  * github : https://github.com/mhemdan
  */
-interface ActorDetailsIneractor: BaseInteractor {
+interface ActorDetailsIneractor : BaseInteractor {
     fun getActorDetails(personID: Int): Single<ActorModel>
     fun getActorImages(personID: Int): Single<ImagesResponse>
 }

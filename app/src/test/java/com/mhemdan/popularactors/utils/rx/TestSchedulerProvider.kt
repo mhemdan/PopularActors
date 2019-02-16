@@ -1,7 +1,11 @@
 package com.mhemdan.popularactors.utils.rx
 
 import com.mhemdan.popularactors.util.rx.SchedulerProvider
-import io.reactivex.*
+import io.reactivex.ObservableTransformer
+import io.reactivex.SingleTransformer
+import io.reactivex.CompletableTransformer
+import io.reactivex.FlowableTransformer
+import io.reactivex.MaybeTransformer
 import io.reactivex.schedulers.TestScheduler
 
 class TestSchedulerProvider(var mTestScheduler: TestScheduler) : SchedulerProvider {
@@ -29,5 +33,4 @@ class TestSchedulerProvider(var mTestScheduler: TestScheduler) : SchedulerProvid
         upstream.subscribeOn(mTestScheduler)
             .observeOn(mTestScheduler)
     }
-
 }

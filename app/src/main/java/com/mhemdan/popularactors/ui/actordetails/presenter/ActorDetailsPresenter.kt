@@ -37,7 +37,6 @@ class ActorDetailsPresenter<V : ActorDetailsContract.View, I : ActorDetailsInera
 
             compositeDisposable?.add(disposable)
         }
-
     }
 
     private fun getActorImages(personID: Int) {

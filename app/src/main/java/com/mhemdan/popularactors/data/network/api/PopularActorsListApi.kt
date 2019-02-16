@@ -19,5 +19,4 @@ interface PopularActorsListApi {
 
     @GET(ApiEndPoints.ACTOR_SEARCH)
     fun searchActors(@Query(SEARCH_QUERY) searchQuery: String, @Query(PAGE_INDEX) pageIndex: Int): Single<PopularActorsResponse>
-
 }

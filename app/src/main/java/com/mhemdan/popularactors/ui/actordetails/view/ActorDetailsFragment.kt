@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
 import com.mhemdan.popularactors.R
 import com.mhemdan.popularactors.data.model.ActorModel
 import com.mhemdan.popularactors.data.model.ImageModel
@@ -20,7 +19,7 @@ import javax.inject.Inject
  * Created by m.hemdan on 11,February,2019
  * github : https://github.com/mhemdan
  */
-class ActorDetailsFragment: BaseFragment(), ActorDetailsContract.View {
+class ActorDetailsFragment : BaseFragment(), ActorDetailsContract.View {
 
     @Inject
     internal lateinit var presenter: ActorDetailsPresenter<ActorDetailsContract.View, ActorDetailsIneractor>

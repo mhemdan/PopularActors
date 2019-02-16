@@ -11,11 +11,10 @@ import javax.inject.Inject
  * Created by m.hemdan on 10,February,2019
  * github : https://github.com/mhemdan
  */
-class ActorsApp: Application(), HasActivityInjector {
+class ActorsApp : Application(), HasActivityInjector {
 
     @Inject
     internal lateinit var activityDispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
-
 
     override fun activityInjector() = activityDispatchingAndroidInjector
 
@@ -26,5 +25,4 @@ class ActorsApp: Application(), HasActivityInjector {
             .build()
             .inject(this)
     }
-
 }

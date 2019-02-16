@@ -10,7 +10,6 @@ import androidx.fragment.app.DialogFragment
 import com.mhemdan.popularactors.R
 import kotlinx.android.synthetic.main.dialog_loading.*
 
-
 /**
  * Created by m.hemdan on 24,December,2018
  * github : https://github.com/mhemdan

@@ -8,7 +8,11 @@ import com.mhemdan.popularactors.util.StateManager
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
-import okhttp3.*
+import okhttp3.Interceptor
+import okhttp3.Response
+import okhttp3.CacheControl
+import okhttp3.Cache
+import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -17,8 +21,6 @@ import java.io.File
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 import javax.inject.Named
-
-
 /**
  * Created by m.hemdan on 10,February,2019
  * github : https://github.com/mhemdan
@@ -42,7 +44,6 @@ object NetworkModule {
     internal fun provideActorDetailsApi(retrofit: Retrofit): PopularActorDetailsApi =
         retrofit.create(PopularActorDetailsApi::class.java)
 
-
     @Provides
     @Named("apiKeyInterceptor")
     @JvmStatic
@@ -61,13 +62,11 @@ object NetworkModule {
     internal fun provideOkHttpLoggingInterceptor() =
         HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
-
     @Provides
     @Named("cache")
     @JvmStatic
     fun provideCache(@Named("cacheDir") cacheDir: File, @Named("cacheSize") cacheSize: Long): Cache =
         Cache(File(cacheDir.path, HTTP_CACHE_PATH), cacheSize)
-
 
     @Provides
     @Named("cacheInterceptor")
@@ -89,7 +88,6 @@ object NetworkModule {
                     .build()
             }
         }
-
 
     @Provides
     @Named("offlineInterceptor")
@@ -118,7 +116,6 @@ object NetworkModule {
             }
         }
 
-
     @Provides
     @Named("retryInterceptor")
     @JvmStatic
@@ -146,12 +143,10 @@ object NetworkModule {
                 throw exception
             }
 
-
             // otherwise just pass the original response on
             return response!!
         }
     }
-
 
     @Provides
     @JvmStatic

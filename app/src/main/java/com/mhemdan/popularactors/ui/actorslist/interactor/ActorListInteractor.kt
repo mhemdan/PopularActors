@@ -8,6 +8,6 @@ import io.reactivex.Single
  * Created by m.hemdan on 11,February,2019
  * github : https://github.com/mhemdan
  */
-interface ActorListInteractor: BaseInteractor {
+interface ActorListInteractor : BaseInteractor {
     fun getPopularActors(pageIndex: Int, searchQuery: String? = ""): Single<PopularActorsResponse>
 }

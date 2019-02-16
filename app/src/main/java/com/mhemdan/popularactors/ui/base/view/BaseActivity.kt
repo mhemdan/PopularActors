@@ -1,6 +1,5 @@
 package com.mhemdan.popularactors.ui.base.view
 
-
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.mhemdan.popularactors.R
@@ -17,12 +16,10 @@ import dagger.android.AndroidInjection
  */
 abstract class BaseActivity : AppCompatActivity(), BaseView {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         performDI()
         super.onCreate(savedInstanceState)
     }
-
 
     override fun showLoading() {
         if (findFragment(LoadingFragmentDialog::class.java.simpleName) == null) {
@@ -51,5 +48,4 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
     }
 
     private fun performDI() = AndroidInjection.inject(this)
-
 }

@@ -16,10 +16,8 @@ import javax.inject.Inject
 
 class ActorDetailsActivity : BaseActivity(), HasSupportFragmentInjector {
 
-
     @Inject
     internal lateinit var fragmentDispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,18 +27,16 @@ class ActorDetailsActivity : BaseActivity(), HasSupportFragmentInjector {
 
         addFragment(ActorDetailsFragment.newInstance().withArgs {
             this.actorModel = intent.extras.actorModel
-        } , R.id.container_fragment)
-
+        }, R.id.container_fragment)
     }
 
     private fun setToolbar() {
         setSupportActionBar(toolbar)
         toolbarLayout.title = intent.extras?.actorModel?.name
-        Glide.with(this).load( IMAGES_BASE_URL + intent.extras?.actorModel?.profile_path).into(imgActor)
+        Glide.with(this).load(IMAGES_BASE_URL + intent.extras?.actorModel?.profile_path).into(imgActor)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
     }
-
 
     override fun supportFragmentInjector() = fragmentDispatchingAndroidInjector
 

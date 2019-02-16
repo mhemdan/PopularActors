@@ -1,7 +1,6 @@
 package com.mhemdan.popularactors.di.builder
 
 import com.mhemdan.popularactors.ui.actordetails.ActorDetailsFragmentProvider
-import com.mhemdan.popularactors.ui.actordetails.ActorDetailsModule
 import com.mhemdan.popularactors.ui.actordetails.view.ActorDetailsActivity
 import com.mhemdan.popularactors.ui.actorslist.ActorsListFragmentProvider
 import com.mhemdan.popularactors.ui.actorslist.view.ActorsListActivity

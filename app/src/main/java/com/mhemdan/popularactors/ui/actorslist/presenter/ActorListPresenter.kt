@@ -20,7 +20,7 @@ class ActorListPresenter<V : ActorListContract.View, I : ActorListInteractor> @I
 
     override fun getPopularActors(pageNumber: Int, searchQuery: String?) {
         isNetConnectedOnFailurePromptUser(stateManager).not()
-        if(pageNumber == 1) view?.showLoading()
+        if (pageNumber == 1) view?.showLoading()
 
         interactor?.let {
             val disposable = it.getPopularActors(pageNumber, searchQuery)

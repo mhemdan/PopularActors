@@ -27,8 +27,6 @@ class ActorDetailsPresenterTest {
     val mockImagesResponse = mockk<ImagesResponse>()
     val mockActorDetailsInteractor = mockk<ActorDetailsIneractor>()
     val stateManager = mockk<StateManager>()
-
-
     private lateinit var mockActorDetailsPresenter: ActorDetailsContract.Presenter<ActorDetailsContract.View, ActorDetailsIneractor>
     private lateinit var mTestScheduler: TestScheduler
 
@@ -55,7 +53,6 @@ class ActorDetailsPresenterTest {
         verify { mockView.insertActorDetails(mockActorModel) }
         verify { mockView.insertActorImages(mockImagesList) }
     }
-
 
     private fun getActorDetails() {
         every { stateManager.isConnected() } returns true
